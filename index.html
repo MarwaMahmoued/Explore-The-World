@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Traveling Page   </title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover;
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+
+    h2 { margin-top: 0; }
+
+    .destinations {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .place {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .place img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .place .info {
+      padding: 10px;
+    }
+
+    .btn {
+      background: #0b74de;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    form label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Explore The World    
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h2> افضل الوجهات</h2>
+      <div class="destinations">
+        <div class="place">
+          <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad" />
+          <div class="info">
+            <h3>تركيا - إسطنبول</h3>
+            <p>رحلات ممتازة لمدة 5 أيام + فندق 4 نجوم.</p>
+            <button class="btn">احجز الآن</button>
+          </div>
+        </div>
+
+        <div class="place">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c" />
+          <div class="info">
+            <h3>الإمارات - دبي</h3>
+            <p>عروض خاصة + جولات سياحية مجانية.</p>
+            <button class="btn">احجز الآن</button>
+          </div>
+        </div>
+
+        <div class="place">
+          <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd" />
+          <div class="info">
+            <h3>ماليزيا - كوالالمبور</h3>
+            <p>7 أيام رائعة وسط الطبيعة والمعالم.</p>
+            <button class="btn">احجز الآن</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>احجز رحلتك الآن</h2>
+      <p>املأ بياناتك وسنتواصل معك خلال 24 ساعة.</p>
+      <form id="travelForm">
+        <label>الاسم</label>
+        <input id="name" required />
+
+        <label>البريد الإلكتروني</label>
+        <input id="email" type="email" required />
+
+        <label>الوجهة</label>
+        <input id="destination" placeholder="إلى أين ترغب بالسفر؟" />
+
+        <label>الرسالة</label>
+        <textarea id="message"></textarea>
+
+        <button type="submit" class="btn">إرسال</button>
+      </form>
+    </div>
+
+  </div>
+
+  
+
+  <script>
+    const form = document.getElementById("travelForm");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      if (!name || !email) {
+        alert("من فضلك اكتب الاسم والبريد.");
+        return;
+      }
+      alert("تم إرسال طلب الحجز! سنعود إليك قريباً.");
+      form.reset();
+    });
+    const buttons = document.querySelectorAll('.btn');
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.getElementById('travelForm').scrollIntoView({behavior:'smooth'});
+  });
+});
+  </script>
+
+</body>
+</html>
